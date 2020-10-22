@@ -12,10 +12,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Activity_home extends AppCompatActivity {
 
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        String name1 = getIntent().getStringExtra("extra_name");
+        name = name1;
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -26,5 +29,9 @@ public class Activity_home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+    }
+
+    public String getName(){
+        return name;
     }
 }

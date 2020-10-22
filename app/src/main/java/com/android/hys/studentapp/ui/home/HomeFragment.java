@@ -1,5 +1,6 @@
 package com.android.hys.studentapp.ui.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.android.hys.studentapp.UserService;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    String name;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,10 +46,10 @@ public class HomeFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = et_name.getText().toString();
+                String name2 = et_name.getText().toString();
                 String info = et_info.getText().toString();
 
-                if (KuaidiService.kuaidiAdd(name, info))
+                if (KuaidiService.kuaidiAdd(name,name2, info))
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -64,5 +66,11 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        name = ((Activity_home) activity).getName();//通过强转成宿主activity，就可以获取到传递过来的数据
     }
 }

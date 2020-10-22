@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = ((EditText) findViewById(R.id.et_user)).getText().toString();
+                final String name = ((EditText) findViewById(R.id.et_user)).getText().toString();
                 String password = ((EditText) findViewById(R.id.et_pwd)).getText().toString();
                 if (UserService.signIn(name, password,"0000"))
                     runOnUiThread(new Runnable() {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, Activity_home.class);
+                            intent.putExtra("extra_name",name);
                             startActivity(intent);
                         }
                     });

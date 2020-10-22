@@ -20,7 +20,7 @@ public class Activity_LoginUp extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = ((EditText) findViewById(R.id.reg_username)).getText().toString();
+                final String name = ((EditText) findViewById(R.id.reg_username)).getText().toString();
                 String password = ((EditText) findViewById(R.id.reg_password)).getText().toString();
                 String password2 = ((EditText) findViewById(R.id.reg_password2)).getText().toString();
                 String phone = ((EditText) findViewById(R.id.reg_phone)).getText().toString();
@@ -31,6 +31,7 @@ public class Activity_LoginUp extends AppCompatActivity {
                             public void run() {
                                 Toast.makeText(Activity_LoginUp.this, "注册成功", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Activity_LoginUp.this, Activity_home.class);
+                                intent.putExtra("extra_name",name);
                                 startActivity(intent);
                             }
                         });
