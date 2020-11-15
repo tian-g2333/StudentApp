@@ -7,7 +7,7 @@ import java.net.URLEncoder;
 
 public class KuaidiService {
     public static boolean kuaidiSelect(String name, String name2, String info) {
-        KuaidiThread kuaidiThread = new KuaidiThread("http://8.129.48.153:8080/MyWeb/SignIn",name,name2,info);
+        KuaidiThread kuaidiThread = new KuaidiThread("http://10.0.2.2:8080/MyWeb/SignIn",name,name2,info);
         try
         {
             kuaidiThread.start();
@@ -22,7 +22,7 @@ public class KuaidiService {
     }
 
     public static boolean kuaidiAdd(String name, String name2, String info) {
-        KuaidiThread kuaidiThread = new KuaidiThread("http://8.129.48.153:8080/MyWeb/DeliveryAdd",name,name2,info);
+        KuaidiThread kuaidiThread = new KuaidiThread("http://10.0.2.2:8080/MyWeb/DeliveryAdd",name,name2,info);
         try
         {
             kuaidiThread.start();

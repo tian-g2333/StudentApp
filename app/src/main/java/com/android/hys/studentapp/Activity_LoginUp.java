@@ -33,6 +33,7 @@ public class Activity_LoginUp extends AppCompatActivity {
                                 Intent intent = new Intent(Activity_LoginUp.this, Activity_home.class);
                                 intent.putExtra("extra_name",name);
                                 startActivity(intent);
+                                finish();
                             }
                         });
                     else {
